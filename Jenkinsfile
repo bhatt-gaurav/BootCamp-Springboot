@@ -13,7 +13,7 @@ pipeline {
     {
       agent { label 'demo' }
       steps {
-        git branch: 'newfeature', credentialsId: 'GitlabCred', url: 'https://gitlab.com/wezvaprojects/ninjas/jobready1.0/build/backend/springboot.git'
+        git branch: 'newfeature', credentialsId: 'GitHubCred', url: 'https://github.com/bhatt-gaurav/BootCamp-Springboot.git'
       }
      } 
 
@@ -157,3 +157,4 @@ pipeline {
 
  }
 }
+
