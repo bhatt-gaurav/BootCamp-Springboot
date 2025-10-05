@@ -1,13 +1,12 @@
 pipeline {
  agent none
  parameters {
-     string(name: 'ECRURL', defaultValue: '001647536300.dkr.ecr.ap-south-1.amazonaws.com', description: 'Please Enter your Docker ECR REGISTRY URL without https?')
+     string(name: 'ECRURL', defaultValue: '837411784850.dkr.ecr.us-east-1.amazonaws.com', description: 'Please Enter your Docker ECR REGISTRY URL without https?')
     string(name: 'APPREPO', defaultValue: 'wezvatechbackend', description: 'Please Enter your Docker App Repo Name:TAG?')
-    string(name: 'REGION', defaultValue: 'ap-south-1', description: 'Please Enter your AWS Region?') 
+    string(name: 'REGION', defaultValue: 'us-east-1', description: 'Please Enter your AWS Region?') 
     password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password')
     booleanParam(name: 'deploybuild', defaultValue: false, description: 'Trigger Deployment ?')
  }
-
 
  stages{
     stage('Checkout')
