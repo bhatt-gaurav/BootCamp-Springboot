@@ -80,7 +80,7 @@ pipeline {
           AppTag = params.APPREPO + ":fb" + env.BUILD_ID
                                   // Docker login needs https appended
           ECR = "https://" + params.ECRURL
-          docker.withRegistry( ECR, 'ecr:ap-south-1:AWSCred' ) {
+          docker.withRegistry( ECR, 'ecr:us-east-1:AWSCred' ) {
                                   // Build Docker Image locally
                myImage = docker.build(AppTag)
                                  // Push the Image to the Registry 
@@ -111,7 +111,7 @@ pipeline {
     {
        agent { label 'kind' }
        steps {
-           git branch: 'newfeature', credentialsId: 'GitlabCred', url: 'https://gitlab.com/wezvaprojects/buildpipeline/backend/springboot.git'
+           git branch: 'newfeature', credentialsId: 'GitHubCred', url: 'https://github.com/bhatt-gaurav/BootCamp-Springboot.git'
       
            echo "Preparing KIND cluster ..."
            sh "kind create cluster --name wezvatechdemo --config=kind.yml"
@@ -157,4 +157,5 @@ pipeline {
 
  }
 }
+
 
